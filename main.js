@@ -7,11 +7,30 @@
 document.addEventListener('DOMContentLoaded', () => {
   document.body.classList.add('loaded');
   initAnimations();
+  initDropdowns();
   initSearch();
   initCart();
   initFormValidation();
   initCheckout();
 });
+
+/* ════════════════════════════════
+   0. DROPDOWNS (Me menu)
+════════════════════════════════ */
+function initDropdowns() {
+  document.querySelectorAll('.dropdown-toggle').forEach(btn => {
+    btn.addEventListener('click', e => {
+      e.stopPropagation();
+      const menu = btn.nextElementSibling;
+      const isOpen = menu.classList.contains('open');
+      document.querySelectorAll('.dropdown-menu.open').forEach(m => m.classList.remove('open'));
+      if (!isOpen) menu.classList.add('open');
+    });
+  });
+  document.addEventListener('click', () => {
+    document.querySelectorAll('.dropdown-menu.open').forEach(m => m.classList.remove('open'));
+  });
+}
 
 
 /* ════════════════════════════════

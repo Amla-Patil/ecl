@@ -9,10 +9,9 @@
 </head>
 <body>
 
-<!-- ░░ TOAST CONTAINER ░░ -->
 <div id="toastContainer"></div>
 
-<!-- ░░ CART PANEL ░░ -->
+<!-- Cart Panel -->
 <div id="cartPanel" class="cart-panel">
   <div class="cart-header">
     <h3>Your Cart 🛒</h3>
@@ -26,7 +25,7 @@
 </div>
 <div id="cartOverlay" class="cart-overlay"></div>
 
-<!-- ░░ CHECKOUT MODAL ░░ -->
+<!-- Checkout Modal -->
 <div id="checkoutModal" class="modal-overlay">
   <div class="modal-box">
     <button class="modal-close" id="closeCheckout">✕</button>
@@ -61,123 +60,226 @@
 <!-- ░░ NAV ░░ -->
 <nav>
   <div class="nav-left">
-    <a href="index.html">Home</a>
-    <a href="login.php">Login</a>
+
+    <!-- Home -->
+    <a href="index.html" class="nav-active">Home</a>
+
+    <!-- Me dropdown -->
+    <div class="dropdown">
+      <button class="dropdown-toggle nav-link-btn">Me ▾</button>
+      <div class="dropdown-menu">
+        <a href="my-orders.html">📦 My Orders</a>
+        <a href="my-account.html">👤 My Account</a>
+        <a href="my-info.html">📝 Personal Information</a>
+        <a href="my-rewards.html">⭐ Reward Points</a>
+      </div>
+    </div>
+
     <a href="women.html">Women</a>
     <a href="men.html">Men</a>
     <a href="kids.html">Kids</a>
+    <a href="contact.html">Contact Us</a>
+    <a href="login.php">Login</a>
   </div>
   <div class="nav-right">
-    <input type="text" id="searchInput" placeholder="Search products..." class="search">
+    <input type="text" id="searchInput" placeholder="Search..." class="search">
     <button id="cartIcon" class="cart" aria-label="Cart">🛒 <span id="cartCount" class="cart-badge">0</span></button>
   </div>
 </nav>
 
-<!-- ░░ MAIN ░░ -->
+<!-- ░░ HERO BANNER ░░ -->
+<section class="hero-banner reveal">
+  <div class="hero-text">
+    <span class="hero-tag">New Arrivals ✨</span>
+    <h2>Beauty that speaks for itself</h2>
+    <p>Explore our curated collection of premium skincare, makeup, and wellness products — made with love, trusted by thousands.</p>
+    <div class="hero-btns">
+      <a href="women.html" class="btn-primary">Shop Women's</a>
+      <a href="men.html" class="btn-outline">Shop Men's</a>
+    </div>
+  </div>
+  <div class="hero-img">
+    <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=500" alt="Beauty Products">
+  </div>
+</section>
+
+<!-- ░░ SHOP BY CATEGORY ░░ -->
 <main>
 
-  <!-- About -->
   <section class="reveal">
-    <h2>About Us</h2>
-    <p>Welcome to Glow Beauty, a place where skincare, makeup, and self-love come together.</p>
+    <div class="section-header">
+      <h2>Shop by Category</h2>
+      <p>Find everything you need, all in one place</p>
+    </div>
+    <div class="category-grid">
+
+      <a href="women.html" class="category-card" style="--cat-color:#e91e63;--cat-bg:#fff0f5;">
+        <div class="cat-icon">💄</div>
+        <h3>Makeup</h3>
+        <p>Lipsticks, foundations, eye & more</p>
+        <span class="cat-arrow">→</span>
+      </a>
+
+      <a href="women.html" class="category-card" style="--cat-color:#e91e63;--cat-bg:#fff7fb;">
+        <div class="cat-icon">🧴</div>
+        <h3>Skincare</h3>
+        <p>Serums, moisturisers, toners & more</p>
+        <span class="cat-arrow">→</span>
+      </a>
+
+      <a href="women.html" class="category-card" style="--cat-color:#8e24aa;--cat-bg:#f5f0ff;">
+        <div class="cat-icon">💇‍♀️</div>
+        <h3>Hair Care</h3>
+        <p>Shampoos, masks, oils & more</p>
+        <span class="cat-arrow">→</span>
+      </a>
+
+      <a href="women.html" class="category-card" style="--cat-color:#00838f;--cat-bg:#f0fafa;">
+        <div class="cat-icon">🛁</div>
+        <h3>Body Care</h3>
+        <p>Lotions, scrubs, bath essentials</p>
+        <span class="cat-arrow">→</span>
+      </a>
+
+      <a href="women.html" class="category-card" style="--cat-color:#f57c00;--cat-bg:#fff8f0;">
+        <div class="cat-icon">🌸</div>
+        <h3>Fragrance</h3>
+        <p>Perfumes, mists & deodorants</p>
+        <span class="cat-arrow">→</span>
+      </a>
+
+      <a href="kids.html" class="category-card" style="--cat-color:#2196f3;--cat-bg:#f0f8ff;">
+        <div class="cat-icon">🌈</div>
+        <h3>Kids Care</h3>
+        <p>Gentle, safe products for kids</p>
+        <span class="cat-arrow">→</span>
+      </a>
+
+      <a href="men.html" class="category-card" style="--cat-color:#37474f;--cat-bg:#f5f6f7;">
+        <div class="cat-icon">🧔</div>
+        <h3>Men's Grooming</h3>
+        <p>Face wash, beard oils & more</p>
+        <span class="cat-arrow">→</span>
+      </a>
+
+      <a href="women.html" class="category-card" style="--cat-color:#43a047;--cat-bg:#f1fff3;">
+        <div class="cat-icon">🌿</div>
+        <h3>Wellness</h3>
+        <p>Bath salts, aromatherapy & more</p>
+        <span class="cat-arrow">→</span>
+      </a>
+
+    </div>
   </section>
 
-  <!-- Collection with Add to Cart -->
+  <!-- ░░ SHOP BY PERSON ░░ -->
   <section class="reveal">
-    <h2>Our Collection</h2>
-    <div id="productGrid" class="product-grid">
+    <div class="section-header">
+      <h2>Shop by Collection</h2>
+      <p>Curated for everyone in your family</p>
+    </div>
+    <div class="collection-row">
 
-      <div class="product-card search-item" data-id="1" data-name="Glow Serum" data-price="899" data-title="Glow Serum" data-tags="women skincare serum">
-        <img src="https://d2ati23fc66y9j.cloudfront.net/category-pages/sub_category-174021874143.jpg" width="200" alt="Glow Serum">
-        <h3>Glow Serum</h3>
-        <p class="price">₹899</p>
-        <button class="add-to-cart">Add to Cart</button>
+      <div class="collection-card reveal">
+        <img src="https://5.imimg.com/data5/SELLER/Default/2024/11/465699044/DA/AK/SI/119748904/fashion-cosmetic.jpeg" alt="Women's">
+        <div class="collection-info">
+          <h3>Women's Collection 💄</h3>
+          <p>Makeup and skincare designed for every woman.</p>
+          <a href="women.html" class="section-link-btn">Shop Now →</a>
+        </div>
       </div>
 
-      <div class="product-card search-item" data-id="2" data-name="Rose Lipstick" data-price="499" data-title="Rose Lipstick" data-tags="women makeup lips">
-        <img src="https://www.facescanada.com/cdn/shop/files/650x450_22a14e08-0efb-4449-add1-5d2918d5eb76.jpg" width="200" alt="Rose Lipstick">
-        <h3>Rose Lipstick</h3>
-        <p class="price">₹499</p>
-        <button class="add-to-cart">Add to Cart</button>
+      <div class="collection-card reveal">
+        <img src="https://images.unsplash.com/photo-1585386959984-a4155224a1ad?w=400" alt="Men's">
+        <div class="collection-info">
+          <h3>Men's Grooming 🧔</h3>
+          <p>Premium grooming essentials for the modern man.</p>
+          <a href="men.html" class="section-link-btn">Shop Now →</a>
+        </div>
       </div>
 
-      <div class="product-card search-item" data-id="3" data-name="Beauty Kit" data-price="1299" data-title="Beauty Kit" data-tags="women makeup kit cosmetic">
-        <img src="https://5.imimg.com/data5/SELLER/Default/2024/11/465699044/DA/AK/SI/119748904/fashion-cosmetic.jpeg" width="200" alt="Beauty Kit">
-        <h3>Beauty Kit</h3>
-        <p class="price">₹1,299</p>
-        <button class="add-to-cart">Add to Cart</button>
-      </div>
-
-      <div class="product-card search-item" data-id="4" data-name="Men's Face Wash" data-price="349" data-title="Men's Face Wash" data-tags="men grooming skincare">
-        <img src="https://images.unsplash.com/photo-1585386959984-a4155224a1ad?w=300" width="200" alt="Men's Face Wash">
-        <h3>Men's Face Wash</h3>
-        <p class="price">₹349</p>
-        <button class="add-to-cart">Add to Cart</button>
-      </div>
-
-      <div class="product-card search-item" data-id="5" data-name="Kids Lotion" data-price="249" data-title="Kids Lotion" data-tags="kids gentle lotion skincare">
-        <img src="https://images.unsplash.com/photo-1596464716127-f2a82984de30?w=300" width="200" alt="Kids Lotion">
-        <h3>Kids Lotion</h3>
-        <p class="price">₹249</p>
-        <button class="add-to-cart">Add to Cart</button>
+      <div class="collection-card reveal">
+        <img src="https://images.unsplash.com/photo-1596464716127-f2a82984de30?w=400" alt="Kids">
+        <div class="collection-info">
+          <h3>Kids Care 🌈</h3>
+          <p>Gentle, safe, and dermatologist-approved.</p>
+          <a href="kids.html" class="section-link-btn">Shop Now →</a>
+        </div>
       </div>
 
     </div>
-    <p id="searchNoResults" style="display:none;color:#e91e63;margin-top:20px;">No products found.</p>
-    <p style="margin-top:20px;color:#555;">Discover premium beauty products designed to make you glow.</p>
   </section>
 
-  <!-- Women -->
-  <section id="women" class="reveal">
-    <h2>Women's Collection</h2>
-    <img src="https://5.imimg.com/data5/SELLER/Default/2024/11/465699044/DA/AK/SI/119748904/fashion-cosmetic.jpeg" width="200" alt="Women's Collection">
-    <p>Makeup and skincare designed for women.</p>
-    <a href="women.html" class="section-link-btn">Shop Women's →</a>
+  <!-- ░░ WHY US ░░ -->
+  <section class="reveal why-section">
+    <div class="section-header">
+      <h2>Why Glow Beauty?</h2>
+      <p>We believe beauty should be effortless, safe, and joyful</p>
+    </div>
+    <div class="why-grid">
+      <div class="why-card">
+        <div class="why-icon">🌿</div>
+        <h4>100% Natural</h4>
+        <p>No harsh chemicals. All our products are crafted with nature-first ingredients.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">🔬</div>
+        <h4>Dermatologist Tested</h4>
+        <p>Every product is tested and approved by certified dermatologists.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">🐰</div>
+        <h4>Cruelty Free</h4>
+        <p>We never test on animals. Ever. Our beauty is kind to all living beings.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">🚚</div>
+        <h4>Free Delivery</h4>
+        <p>Free delivery on all orders above ₹499. Fast, tracked, and reliable.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">↩️</div>
+        <h4>Easy Returns</h4>
+        <p>Not happy? Return within 7 days, no questions asked.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">💖</div>
+        <h4>Made with Love</h4>
+        <p>Every product is made with care, passion, and a deep love for beauty.</p>
+      </div>
+    </div>
   </section>
 
-  <!-- Men -->
-  <section id="men" class="reveal">
-    <h2>Men's Grooming</h2>
-    <img src="https://images.unsplash.com/photo-1585386959984-a4155224a1ad" width="200" alt="Men's Grooming">
-    <p>Premium grooming essentials for men.</p>
-    <a href="men.html" class="section-link-btn">Shop Men's →</a>
-  </section>
-
-  <!-- Kids -->
-  <section id="kids" class="reveal">
-    <h2>Kids Care</h2>
-    <img src="https://images.unsplash.com/photo-1596464716127-f2a82984de30" width="200" alt="Kids Care">
-    <p>Gentle skincare and hygiene products for kids.</p>
-    <a href="kids.html" class="section-link-btn">Shop Kids →</a>
-  </section>
-
-  <!-- Why Us -->
-  <section class="reveal">
-    <h2>Why Choose Us?</h2>
-    <ul>
-      <li>High-quality products</li>
-      <li>Trusted by beauty experts</li>
-      <li>Made with love 💖</li>
-    </ul>
-  </section>
-
-  <!-- Contact Form -->
-  <section class="reveal" id="contact">
-    <h2>Contact Us</h2>
-    <p>Have a question? We'd love to hear from you!</p>
-    <form class="validate-form contact-form" id="contactForm">
-      <input type="text" name="name" placeholder="Your Name" required>
-      <input type="email" name="email" placeholder="Your Email" required>
-      <textarea name="message" rows="4" placeholder="Your message..." required data-min="10" style="width:100%;max-width:400px;padding:11px;border-radius:8px;border:1px solid #ccc;margin-bottom:18px;font-family:inherit;resize:vertical;display:block;margin:0 auto 18px;"></textarea>
-      <button type="submit" class="btn-submit">Send Message 💌</button>
-      <p id="contactSuccess" style="display:none;color:#e91e63;margin-top:12px;font-weight:500;">Message sent! We'll be in touch soon 💖</p>
-    </form>
+  <!-- ░░ NEED HELP STRIP ░░ -->
+  <section class="help-strip reveal">
+    <div class="help-text">
+      <h3>Need help or have a question?</h3>
+      <p>Our team is ready to assist you with anything.</p>
+    </div>
+    <a href="contact.html" class="btn-primary">Contact Us →</a>
   </section>
 
 </main>
 
 <footer>
-  <p>© 2026 Glow Beauty. All rights reserved.</p>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <h3>Glow Beauty</h3>
+      <p>Your Beauty, Our Passion ✨</p>
+    </div>
+    <div class="footer-links">
+      <a href="women.html">Women</a>
+      <a href="men.html">Men</a>
+      <a href="kids.html">Kids</a>
+      <a href="contact.html">Contact</a>
+      <a href="login.php">Login</a>
+    </div>
+    <div class="footer-contact">
+      <p>📧 glowbeauty@gmail.com</p>
+      <p>📞 +91 98765 43210</p>
+    </div>
+  </div>
+  <p class="footer-copy">© 2026 Glow Beauty. All rights reserved.</p>
 </footer>
 
 <script src="main.js"></script>
