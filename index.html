@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Glow Beauty</title>
+<link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<!-- ░░ TOAST CONTAINER ░░ -->
+<div id="toastContainer"></div>
+
+<!-- ░░ CART PANEL ░░ -->
+<div id="cartPanel" class="cart-panel">
+  <div class="cart-header">
+    <h3>Your Cart 🛒</h3>
+    <button id="closeCart">✕</button>
+  </div>
+  <div id="cartBody"><p class="cart-empty">Your cart is empty.</p></div>
+  <div id="cartFooter" style="display:none">
+    <div class="cart-total-row">Total: <strong id="cartTotalAmt">₹0</strong></div>
+    <button class="btn-checkout" id="checkoutBtn">Proceed to Checkout</button>
+  </div>
+</div>
+<div id="cartOverlay" class="cart-overlay"></div>
+
+<!-- ░░ CHECKOUT MODAL ░░ -->
+<div id="checkoutModal" class="modal-overlay">
+  <div class="modal-box">
+    <button class="modal-close" id="closeCheckout">✕</button>
+    <h2>Checkout</h2>
+    <p style="color:#555;margin-bottom:18px;">Complete your order below.</p>
+    <form class="validate-form" id="checkoutForm">
+      <label>Full Name</label>
+      <input type="text" name="name" placeholder="Jane Doe" required>
+      <label>Email</label>
+      <input type="email" name="email" placeholder="you@email.com" required>
+      <label>Phone</label>
+      <input type="tel" name="phone" placeholder="+91 9999999999" required>
+      <label>Address</label>
+      <textarea name="address" rows="3" placeholder="Flat, Street, City..." required style="width:100%;padding:11px;border-radius:8px;border:1px solid #ccc;margin-bottom:18px;font-family:inherit;resize:none;"></textarea>
+      <button type="submit" class="btn-submit">Place Order 💖</button>
+    </form>
+    <div id="orderSuccess" style="display:none;text-align:center;padding:20px 0;">
+      <div style="font-size:48px;">🎉</div>
+      <h3 style="color:#e91e63;margin:10px 0;">Order Placed!</h3>
+      <p style="color:#555;">Thank you! We'll email your confirmation shortly.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ░░ HEADER ░░ -->
+<header class="reveal">
+  <div class="header-glow"></div>
+  <h1>Glow Beauty</h1>
+  <h3>Your Beauty, Our Passion ✨</h3>
+</header>
+
+<!-- ░░ NAV ░░ -->
+<nav>
+  <div class="nav-left">
+    <a href="index.html">Home</a>
+    <a href="login.html">Login</a>
+    <a href="#women">Women</a>
+    <a href="#men">Men</a>
+    <a href="#kids">Kids</a>
+  </div>
+  <div class="nav-right">
+    <input type="text" id="searchInput" placeholder="Search products..." class="search">
+    <button id="cartIcon" class="cart" aria-label="Cart">🛒 <span id="cartCount" class="cart-badge">0</span></button>
+  </div>
+</nav>
+
+<!-- ░░ MAIN ░░ -->
+<main>
+
+  <!-- About -->
+  <section class="reveal">
+    <h2>About Us</h2>
+    <p>Welcome to Glow Beauty, a place where skincare, makeup, and self-love come together.</p>
+  </section>
+
+  <!-- Collection with Add to Cart -->
+  <section class="reveal">
+    <h2>Our Collection</h2>
+    <div id="productGrid" class="product-grid">
+
+      <div class="product-card search-item" data-id="1" data-name="Glow Serum" data-price="899" data-title="Glow Serum" data-tags="women skincare serum">
+        <img src="https://d2ati23fc66y9j.cloudfront.net/category-pages/sub_category-174021874143.jpg" width="200" alt="Glow Serum">
+        <h3>Glow Serum</h3>
+        <p class="price">₹899</p>
+        <button class="add-to-cart">Add to Cart</button>
+      </div>
+
+      <div class="product-card search-item" data-id="2" data-name="Rose Lipstick" data-price="499" data-title="Rose Lipstick" data-tags="women makeup lips">
+        <img src="https://www.facescanada.com/cdn/shop/files/650x450_22a14e08-0efb-4449-add1-5d2918d5eb76.jpg" width="200" alt="Rose Lipstick">
+        <h3>Rose Lipstick</h3>
+        <p class="price">₹499</p>
+        <button class="add-to-cart">Add to Cart</button>
+      </div>
+
+      <div class="product-card search-item" data-id="3" data-name="Beauty Kit" data-price="1299" data-title="Beauty Kit" data-tags="women makeup kit cosmetic">
+        <img src="https://5.imimg.com/data5/SELLER/Default/2024/11/465699044/DA/AK/SI/119748904/fashion-cosmetic.jpeg" width="200" alt="Beauty Kit">
+        <h3>Beauty Kit</h3>
+        <p class="price">₹1,299</p>
+        <button class="add-to-cart">Add to Cart</button>
+      </div>
+
+      <div class="product-card search-item" data-id="4" data-name="Men's Face Wash" data-price="349" data-title="Men's Face Wash" data-tags="men grooming skincare">
+        <img src="https://images.unsplash.com/photo-1585386959984-a4155224a1ad?w=300" width="200" alt="Men's Face Wash">
+        <h3>Men's Face Wash</h3>
+        <p class="price">₹349</p>
+        <button class="add-to-cart">Add to Cart</button>
+      </div>
+
+      <div class="product-card search-item" data-id="5" data-name="Kids Lotion" data-price="249" data-title="Kids Lotion" data-tags="kids gentle lotion skincare">
+        <img src="https://images.unsplash.com/photo-1596464716127-f2a82984de30?w=300" width="200" alt="Kids Lotion">
+        <h3>Kids Lotion</h3>
+        <p class="price">₹249</p>
+        <button class="add-to-cart">Add to Cart</button>
+      </div>
+
+    </div>
+    <p id="searchNoResults" style="display:none;color:#e91e63;margin-top:20px;">No products found.</p>
+    <p style="margin-top:20px;color:#555;">Discover premium beauty products designed to make you glow.</p>
+  </section>
+
+  <!-- Women -->
+  <section id="women" class="reveal">
+    <h2>Women's Collection</h2>
+    <img src="https://5.imimg.com/data5/SELLER/Default/2024/11/465699044/DA/AK/SI/119748904/fashion-cosmetic.jpeg" width="200" alt="Women's Collection">
+    <p>Makeup and skincare designed for women.</p>
+  </section>
+
+  <!-- Men -->
+  <section id="men" class="reveal">
+    <h2>Men's Grooming</h2>
+    <img src="https://images.unsplash.com/photo-1585386959984-a4155224a1ad" width="200" alt="Men's Grooming">
+    <p>Premium grooming essentials for men.</p>
+  </section>
+
+  <!-- Kids -->
+  <section id="kids" class="reveal">
+    <h2>Kids Care</h2>
+    <img src="https://images.unsplash.com/photo-1596464716127-f2a82984de30" width="200" alt="Kids Care">
+    <p>Gentle skincare and hygiene products for kids.</p>
+  </section>
+
+  <!-- Why Us -->
+  <section class="reveal">
+    <h2>Why Choose Us?</h2>
+    <ul>
+      <li>High-quality products</li>
+      <li>Trusted by beauty experts</li>
+      <li>Made with love 💖</li>
+    </ul>
+  </section>
+
+  <!-- Contact Form -->
+  <section class="reveal" id="contact">
+    <h2>Contact Us</h2>
+    <p>Have a question? We'd love to hear from you!</p>
+    <form class="validate-form contact-form" id="contactForm">
+      <input type="text" name="name" placeholder="Your Name" required>
+      <input type="email" name="email" placeholder="Your Email" required>
+      <textarea name="message" rows="4" placeholder="Your message..." required data-min="10" style="width:100%;max-width:400px;padding:11px;border-radius:8px;border:1px solid #ccc;margin-bottom:18px;font-family:inherit;resize:vertical;display:block;margin:0 auto 18px;"></textarea>
+      <button type="submit" class="btn-submit">Send Message 💌</button>
+      <p id="contactSuccess" style="display:none;color:#e91e63;margin-top:12px;font-weight:500;">Message sent! We'll be in touch soon 💖</p>
+    </form>
+  </section>
+
+</main>
+
+<footer>
+  <p>© 2026 Glow Beauty. All rights reserved.</p>
+</footer>
+
+<script src="main.js"></script>
+</body>
+</html>

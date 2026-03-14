@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login | Glow Beauty</title>
+<link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<div id="toastContainer"></div>
+
+<header>
+  <div class="header-glow"></div>
+  <h1>Glow Beauty</h1>
+  <h3>Your Beauty, Our Passion ✨</h3>
+</header>
+
+<nav>
+  <div class="nav-left">
+    <a href="index.html">Home</a>
+    <a href="login.html">Login</a>
+  </div>
+</nav>
+
+<div class="login-box reveal">
+  <!-- TAB SWITCHER -->
+  <div class="auth-tabs">
+    <button class="tab-btn active" data-tab="login">Login</button>
+    <button class="tab-btn" data-tab="register">Register</button>
+  </div>
+
+  <!-- LOGIN FORM -->
+  <div id="loginTab" class="tab-content active">
+    <p>Welcome back! Please log in.</p>
+    <form class="validate-form" id="loginForm">
+      <label>Email</label>
+      <input type="email" name="email" placeholder="you@email.com" required>
+      <label>Password</label>
+      <input type="password" name="password" placeholder="••••••••" required data-min="6">
+      <button type="submit" class="btn-submit" id="loginBtn">Login</button>
+      <p id="loginError" class="auth-error" style="display:none;"></p>
+    </form>
+  </div>
+
+  <!-- REGISTER FORM -->
+  <div id="registerTab" class="tab-content" style="display:none">
+    <p>Create your account!</p>
+    <form class="validate-form" id="registerForm">
+      <label>Full Name</label>
+      <input type="text" name="name" placeholder="Jane Doe" required>
+      <label>Email</label>
+      <input type="email" name="email" placeholder="you@email.com" required>
+      <label>Password</label>
+      <input type="password" name="password" id="regPassword" placeholder="Min 8 characters" required data-min="8">
+      <label>Confirm Password</label>
+      <input type="password" name="confirm_password" placeholder="Repeat password" required data-match="regPassword">
+      <button type="submit" class="btn-submit" id="registerBtn">Create Account</button>
+      <p id="registerError" class="auth-error" style="display:none;"></p>
+    </form>
+  </div>
+
+  <a href="index.html" class="back-link">← Back to Home</a>
+</div>
+
+<footer>
+  <p>© 2026 Glow Beauty. All rights reserved.</p>
+</footer>
+
+<script src="main.js"></script>
+<script>
+/* ── Auth page specific JS ── */
+document.addEventListener('DOMContentLoaded', () => {
+
+  // Tab switching
+  document.querySelectorAll('.tab-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      document.querySelectorAll('.tab-content').forEach(t => t.style.display = 'none');
+      btn.classList.add('active');
+      document.getElementById(btn.dataset.tab + 'Tab').style.display = 'block';
+    });
+  });
+
+  // LOGIN submit → POST to auth.php
+  document.getElementById('loginForm').addEventListener('form:valid', async () => {
+    const btn = document.getElementById('loginBtn');
+    const errEl = document.getElementById('loginError');
+    btn.textContent = 'Logging in...';
+    btn.disabled = true;
+    errEl.style.display = 'none';
+
+    try {
+      const res = await fetch('auth.php?action=login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          email: document.querySelector('#loginForm [name=email]').value,
+          password: document.querySelector('#loginForm [name=password]').value,
+        })
+      });
+      const data = await res.json();
+      if (data.success) {
+        showToast('Welcome back, ' + data.user.name + '! 💖');
+        setTimeout(() => window.location.href = 'index.html', 1500);
+      } else {
+        errEl.textContent = (data.errors || ['Login failed.']).join(' ');
+        errEl.style.display = 'block';
+      }
+    } catch {
+      errEl.textContent = 'Network error. Please try again.';
+      errEl.style.display = 'block';
+    } finally {
+      btn.textContent = 'Login';
+      btn.disabled = false;
+    }
+  });
+
+  // REGISTER submit → POST to auth.php
+  document.getElementById('registerForm').addEventListener('form:valid', async () => {
+    const btn = document.getElementById('registerBtn');
+    const errEl = document.getElementById('registerError');
+    btn.textContent = 'Creating account...';
+    btn.disabled = true;
+    errEl.style.display = 'none';
+
+    try {
+      const res = await fetch('auth.php?action=register', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: document.querySelector('#registerForm [name=name]').value,
+          email: document.querySelector('#registerForm [name=email]').value,
+          password: document.querySelector('#registerForm [name=password]').value,
+        })
+      });
+      const data = await res.json();
+      if (data.success) {
+        showToast('Account created! Welcome 🎉');
+        setTimeout(() => window.location.href = 'index.html', 1500);
+      } else {
+        errEl.textContent = (data.errors || ['Registration failed.']).join(' ');
+        errEl.style.display = 'block';
+      }
+    } catch {
+      errEl.textContent = 'Network error. Please try again.';
+      errEl.style.display = 'block';
+    } finally {
+      btn.textContent = 'Create Account';
+      btn.disabled = false;
+    }
+  });
+
+});
+</script>
+</body>
+</html>
