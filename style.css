@@ -527,4 +527,140 @@ footer {
   .cart-panel { width: 100%; right: -100%; }
 }
 
+/* ─── SECTION PAGES ─── */
+
+/* Active nav link */
+.nav-active {
+  text-decoration: underline;
+  font-weight: 700 !important;
+}
+
+/* Shop now button on index sections */
+.section-link-btn {
+  display: inline-block;
+  margin-top: 16px;
+  background: var(--pink);
+  color: white;
+  padding: 10px 24px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14px;
+  transition: background 0.2s, transform 0.15s;
+}
+.section-link-btn:hover {
+  background: #c2185b;
+  transform: translateY(-2px);
+}
+
+/* Hero banner for section pages */
+.section-hero {
+  min-height: 220px;
+  display: flex;
+  align-items: center;
+  padding: 50px 8%;
+  position: relative;
+  overflow: hidden;
+}
+.women-hero {
+  background: linear-gradient(135deg, #ffe3ef 0%, #ffb6d5 50%, #fce4ec 100%);
+}
+.men-hero {
+  background: linear-gradient(135deg, #e3f0ff 0%, #b6d0f5 50%, #e8f4fd 100%);
+}
+.kids-hero {
+  background: linear-gradient(135deg, #fffde7 0%, #fff9c4 50%, #f0f4c3 100%);
+}
+.section-hero-text { position: relative; z-index: 1; }
+.section-hero-text h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 36px;
+  color: var(--text);
+  margin: 8px 0 10px;
+}
+.section-hero-text p { color: var(--muted); font-size: 16px; max-width: 480px; }
+.section-tag {
+  background: var(--pink);
+  color: white;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 4px 14px;
+  border-radius: 20px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+/* Filter bar */
+.filter-bar {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+}
+.filter-btn {
+  background: var(--white);
+  border: 1.5px solid #f0c0d4;
+  color: var(--muted);
+  padding: 8px 20px;
+  border-radius: 20px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.filter-btn:hover { border-color: var(--pink); color: var(--pink); }
+.filter-btn.active {
+  background: var(--pink);
+  border-color: var(--pink);
+  color: white;
+}
+
+/* Product badge */
+.product-card { position: relative; }
+.product-badge {
+  position: absolute;
+  top: 12px; left: 12px;
+  background: var(--pink);
+  color: white;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 20px;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+.new-badge { background: #43a047; }
+.product-desc {
+  color: var(--muted);
+  font-size: 13px;
+  margin-bottom: 10px;
+  margin-top: -6px;
+}
+.product-card img {
+  width: 100%;
+  height: 170px;
+  object-fit: cover;
+  border-radius: 10px;
+  display: block;
+}
+
+/* Kids safety banner */
+.safety-banner {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: #e8f5e9;
+  border: 1.5px solid #a5d6a7;
+  border-radius: var(--radius);
+  padding: 16px 24px;
+  max-width: 680px;
+  margin: 0 auto;
+  text-align: left;
+}
+.safety-icon { font-size: 32px; flex-shrink: 0; }
+.safety-banner strong { color: #2e7d32; font-size: 15px; display: block; margin-bottom: 4px; }
+.safety-banner p { color: #555; font-size: 13px; margin: 0; }
+
 html { scroll-behavior: smooth; }

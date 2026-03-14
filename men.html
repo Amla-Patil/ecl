@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Men's Grooming | Glow Beauty</title>
+<link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<div id="toastContainer"></div>
+
+<!-- Cart Panel -->
+<div id="cartPanel" class="cart-panel">
+  <div class="cart-header">
+    <h3>Your Cart 🛒</h3>
+    <button id="closeCart">✕</button>
+  </div>
+  <div id="cartBody"><p class="cart-empty">Your cart is empty.</p></div>
+  <div id="cartFooter" style="display:none">
+    <div class="cart-total-row">Total: <strong id="cartTotalAmt">₹0</strong></div>
+    <button class="btn-checkout" id="checkoutBtn">Proceed to Checkout</button>
+  </div>
+</div>
+<div id="cartOverlay" class="cart-overlay"></div>
+
+<!-- Checkout Modal -->
+<div id="checkoutModal" class="modal-overlay">
+  <div class="modal-box">
+    <button class="modal-close" id="closeCheckout">✕</button>
+    <h2>Checkout</h2>
+    <p style="color:#555;margin-bottom:18px;">Complete your order below.</p>
+    <form class="validate-form" id="checkoutForm">
+      <label>Full Name</label>
+      <input type="text" name="name" placeholder="John Doe" required>
+      <label>Email</label>
+      <input type="email" name="email" placeholder="you@email.com" required>
+      <label>Phone</label>
+      <input type="tel" name="phone" placeholder="+91 9999999999" required>
+      <label>Address</label>
+      <textarea name="address" rows="3" placeholder="Flat, Street, City..." required style="width:100%;padding:11px;border-radius:8px;border:1px solid #ccc;margin-bottom:18px;font-family:inherit;resize:none;"></textarea>
+      <button type="submit" class="btn-submit">Place Order 💖</button>
+    </form>
+    <div id="orderSuccess" style="display:none;text-align:center;padding:20px 0;">
+      <div style="font-size:48px;">🎉</div>
+      <h3 style="color:#e91e63;margin:10px 0;">Order Placed!</h3>
+      <p style="color:#555;">Thank you! We'll email your confirmation shortly.</p>
+    </div>
+  </div>
+</div>
+
+<!-- Header -->
+<header>
+  <div class="header-glow"></div>
+  <h1>Glow Beauty</h1>
+  <h3>Your Beauty, Our Passion ✨</h3>
+</header>
+
+<!-- Nav -->
+<nav>
+  <div class="nav-left">
+    <a href="index.html">Home</a>
+    <a href="login.php">Login</a>
+    <a href="women.html">Women</a>
+    <a href="men.html" class="nav-active">Men</a>
+    <a href="kids.html">Kids</a>
+  </div>
+  <div class="nav-right">
+    <input type="text" id="searchInput" placeholder="Search products..." class="search">
+    <button id="cartIcon" class="cart" aria-label="Cart">🛒 <span id="cartCount" class="cart-badge">0</span></button>
+  </div>
+</nav>
+
+<!-- Hero Banner -->
+<div class="section-hero men-hero reveal">
+  <div class="section-hero-text">
+    <span class="section-tag">Men's Grooming</span>
+    <h2>Groomed. Confident. Bold. 💪</h2>
+    <p>Premium grooming essentials built for the modern man.</p>
+  </div>
+</div>
+
+<main>
+
+  <!-- Filters -->
+  <section class="reveal">
+    <div class="filter-bar">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="skincare">Skincare</button>
+      <button class="filter-btn" data-filter="beard">Beard Care</button>
+      <button class="filter-btn" data-filter="haircare">Hair Care</button>
+      <button class="filter-btn" data-filter="fragrance">Fragrance</button>
+    </div>
+  </section>
+
+  <!-- Products -->
+  <section class="reveal">
+    <div id="productGrid" class="product-grid">
+
+      <div class="product-card search-item" data-id="m1" data-name="Men's Face Wash" data-price="349" data-title="Men's Face Wash" data-tags="skincare facewash" data-category="skincare">
+        <div class="product-badge">Bestseller</div>
+        <img src="https://images.unsplash.com/photo-1585386959984-a4155224a1ad?w=300" alt="Men's Face Wash">
+        <h3>Men's Face Wash</h3>
+        <p class="product-desc">Deep cleanse, oil control</p>
+        <p class="price">₹349</p>
+        <button class="add-to-cart">Add to Cart</button>
+      </div>
+
+      <div class="product-card search-item" data-id="m2" data-name="Beard Oil" data-price="449" data-title="Beard Oil" data-tags="beard grooming oil" data-category="beard">
+        <img src="https://images.unsplash.com/photo-1621607512214-68297480165e?w=300" alt="Beard Oil">
+        <h3>Beard Oil</h3>
+        <p class="product-desc">Softens &amp; nourishes beard hair</p>
+        <p class="price">₹449</p>
+        <button class="add-to-cart">Add to Cart</button>
+      </div>
+
+      <div class="product-card search-item" data-id="m3" data-name="Anti-Aging Moisturizer" data-price="799" data-title="Anti-Aging Moisturizer" data-tags="skincare moisturizer" data-category="skincare">
+        <div class="product-badge new-badge">New</div>
+        <img src="https://images.unsplash.com/photo-1556228578-0d85b1a4d571?w=300" alt="Moisturizer">
+        <h3>Anti-Aging Moisturizer</h3>
+        <p class="product-desc">Reduces fine lines, SPF 20</p>
+        <p class="price">₹799</p>
+        <button class="add-to-cart">Add to Cart</button>
+      </div>
+
+      <div class="product-card search-item" data-id="m4" data-name="Beard Balm" data-price="399" data-title="Beard Balm" data-tags="beard styling grooming" data-category="beard">
+        <img src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?w=300" alt="Beard Balm">
+        <h3>Beard Balm</h3>
+        <p class="product-desc">Style, hold &amp; condition</p>
+        <p class="price">₹399</p>
+        <button class="add-to-cart">Add to Cart</button>
+      </div>
+
+      <div class="product-card search-item" data-id="m5" data-name="Hair Wax" data-price="299" data-title="Hair Wax" data-tags="haircare styling wax" data-category="haircare">
+        <img src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?w=300" alt="Hair Wax">
+        <h3>Hair Wax</h3>
+        <p class="product-desc">Strong hold, natural finish</p>
+        <p class="price">₹299</p>
+        <button class="add-to-cart">Add to Cart</button>
+      </div>
+
+      <div class="product-card search-item" data-id="m6" data-name="Men's Cologne" data-price="1299" data-title="Men's Cologne" data-tags="fragrance cologne perfume" data-category="fragrance">
+        <div class="product-badge">Popular</div>
+        <img src="https://images.unsplash.com/photo-1523293182086-7651a899d37f?w=300" alt="Cologne">
+        <h3>Men's Cologne</h3>
+        <p class="product-desc">Woody &amp; fresh, 75ml EDT</p>
+        <p class="price">₹1,299</p>
+        <button class="add-to-cart">Add to Cart</button>
+      </div>
+
+      <div class="product-card search-item" data-id="m7" data-name="Under Eye Cream" data-price="549" data-title="Under Eye Cream" data-tags="skincare eyes dark circles" data-category="skincare">
+        <img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=300" alt="Under Eye Cream">
+        <h3>Under Eye Cream</h3>
+        <p class="product-desc">Reduces dark circles &amp; puffiness</p>
+        <p class="price">₹549</p>
+        <button class="add-to-cart">Add to Cart</button>
+      </div>
+
+      <div class="product-card search-item" data-id="m8" data-name="Shampoo for Men" data-price="329" data-title="Shampoo for Men" data-tags="haircare shampoo" data-category="haircare">
+        <img src="https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?w=300" alt="Shampoo">
+        <h3>Shampoo for Men</h3>
+        <p class="product-desc">Anti-dandruff, caffeine boost</p>
+        <p class="price">₹329</p>
+        <button class="add-to-cart">Add to Cart</button>
+      </div>
+
+    </div>
+    <p id="searchNoResults" style="display:none;color:#e91e63;margin-top:20px;">No products found.</p>
+  </section>
+
+</main>
+
+<footer>
+  <p>© 2026 Glow Beauty. All rights reserved.</p>
+</footer>
+
+<script src="main.js"></script>
+<script>
+document.querySelectorAll('.filter-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    const filter = btn.dataset.filter;
+    document.querySelectorAll('.product-card').forEach(card => {
+      const cat = card.dataset.category || '';
+      card.style.display = (filter === 'all' || cat === filter) ? '' : 'none';
+    });
+  });
+});
+</script>
+</body>
+</html>

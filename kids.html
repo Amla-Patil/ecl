@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kids Care | Glow Beauty</title>
+<link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<div id="toastContainer"></div>
+
+<!-- Cart Panel -->
+<div id="cartPanel" class="cart-panel">
+  <div class="cart-header">
+    <h3>Your Cart 🛒</h3>
+    <button id="closeCart">✕</button>
+  </div>
+  <div id="cartBody"><p class="cart-empty">Your cart is empty.</p></div>
+  <div id="cartFooter" style="display:none">
+    <div class="cart-total-row">Total: <strong id="cartTotalAmt">₹0</strong></div>
+    <button class="btn-checkout" id="checkoutBtn">Proceed to Checkout</button>
+  </div>
+</div>
+<div id="cartOverlay" class="cart-overlay"></div>
+
+<!-- Checkout Modal -->
+<div id="checkoutModal" class="modal-overlay">
+  <div class="modal-box">
+    <button class="modal-close" id="closeCheckout">✕</button>
+    <h2>Checkout</h2>
+    <p style="color:#555;margin-bottom:18px;">Complete your order below.</p>
+    <form class="validate-form" id="checkoutForm">
+      <label>Full Name</label>
+      <input type="text" name="name" placeholder="Your Name" required>
+      <label>Email</label>
+      <input type="email" name="email" placeholder="you@email.com" required>
+      <label>Phone</label>
+      <input type="tel" name="phone" placeholder="+91 9999999999" required>
+      <label>Address</label>
+      <textarea name="address" rows="3" placeholder="Flat, Street, City..." required style="width:100%;padding:11px;border-radius:8px;border:1px solid #ccc;margin-bottom:18px;font-family:inherit;resize:none;"></textarea>
+      <button type="submit" class="btn-submit">Place Order 💖</button>
+    </form>
+    <div id="orderSuccess" style="display:none;text-align:center;padding:20px 0;">
+      <div style="font-size:48px;">🎉</div>
+      <h3 style="color:#e91e63;margin:10px 0;">Order Placed!</h3>
+      <p style="color:#555;">Thank you! We'll email your confirmation shortly.</p>
+    </div>
+  </div>
+</div>
+
+<!-- Header -->
+<header>
+  <div class="header-glow"></div>
+  <h1>Glow Beauty</h1>
+  <h3>Your Beauty, Our Passion ✨</h3>
+</header>
+
+<!-- Nav -->
+<nav>
+  <div class="nav-left">
+    <a href="index.html">Home</a>
+    <a href="login.php">Login</a>
+    <a href="women.html">Women</a>
+    <a href="men.html">Men</a>
+    <a href="kids.html" class="nav-active">Kids</a>
+  </div>
+  <div class="nav-right">
+    <input type="text" id="searchInput" placeholder="Search products..." class="search">
+    <button id="cartIcon" class="cart" aria-label="Cart">🛒 <span id="cartCount" class="cart-badge">0</span></button>
+  </div>
+</nav>
+
+<!-- Hero Banner -->
+<div class="section-hero kids-hero reveal">
+  <div class="section-hero-text">
+    <span class="section-tag">Kids Care</span>
+    <h2>Gentle. Safe. Loved. 🌸</h2>
+    <p>Dermatologist-tested products made with care for your little ones.</p>
+  </div>
+</div>
+
+<main>
+
+  <!-- Safety note -->
+  <section class="reveal">
+    <div class="safety-banner">
+      <span class="safety-icon">🛡️</span>
+      <div>
+        <strong>100% Safe for Kids</strong>
+        <p>All products are dermatologist-tested, tear-free, and free from harsh chemicals.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Filters -->
+  <section class="reveal">
+    <div class="filter-bar">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="bath">Bath & Body</button>
+      <button class="filter-btn" data-filter="skincare">Skincare</button>
+      <button class="filter-btn" data-filter="haircare">Hair Care</button>
+      <button class="filter-btn" data-filter="suncare">Sun Care</button>
+    </div>
+  </section>
+
+  <!-- Products -->
+  <section class="reveal">
+    <div id="productGrid" class="product-grid">
+
+      <div class="product-card search-item" data-id="k1" data-name="Kids Lotion" data-price="249" data-title="Kids Lotion" data-tags="lotion moisturizer gentle" data-category="skincare">
+        <div class="product-badge">Bestseller</div>
+        <img src="https://images.unsplash.com/photo-1596464716127-f2a82984de30?w=300" alt="Kids Lotion">
+        <h3>Kids Lotion</h3>
+        <p class="product-desc">Soft skin, no tears formula</p>
+        <p class="price">₹249</p>
+        <button class="add-to-cart">Add to Cart</button>
+      </div>
+
+      <div class="product-card search-item" data-id="k2" data-name="Baby Shampoo" data-price="199" data-title="Baby Shampoo" data-tags="haircare shampoo gentle tearfree" data-category="haircare">
+        <div class="product-badge new-badge">New</div>
+        <img src="https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?w=300" alt="Baby Shampoo">
+        <h3>Baby Shampoo</h3>
+        <p class="product-desc">Tear-free, gentle on scalp</p>
+        <p class="price">₹199</p>
+        <button class="add-to-cart">Add to Cart</button>
+      </div>
+
+      <div class="product-card search-item" data-id="k3" data-name="Kids Sunscreen SPF 30" data-price="349" data-title="Kids Sunscreen SPF 30" data-tags="suncare spf protection" data-category="suncare">
+        <img src="https://images.unsplash.com/photo-1583241800698-e8ab01830a63?w=300" alt="Kids Sunscreen">
+        <h3>Kids Sunscreen SPF 30</h3>
+        <p class="product-desc">Water-resistant, mineral-based</p>
+        <p class="price">₹349</p>
+        <button class="add-to-cart">Add to Cart</button>
+      </div>
+
+      <div class="product-card search-item" data-id="k4" data-name="Bubble Bath Gel" data-price="179" data-title="Bubble Bath Gel" data-tags="bath body wash gentle" data-category="bath">
+        <img src="https://images.unsplash.com/photo-1585386959984-a4155224a1ad?w=300" alt="Bubble Bath">
+        <h3>Bubble Bath Gel</h3>
+        <p class="product-desc">Fun &amp; gentle, fruity scent</p>
+        <p class="price">₹179</p>
+        <button class="add-to-cart">Add to Cart</button>
+      </div>
+
+      <div class="product-card search-item" data-id="k5" data-name="Diaper Rash Cream" data-price="299" data-title="Diaper Rash Cream" data-tags="skincare baby rash cream" data-category="skincare">
+        <div class="product-badge">Popular</div>
+        <img src="https://images.unsplash.com/photo-1556228578-0d85b1a4d571?w=300" alt="Rash Cream">
+        <h3>Diaper Rash Cream</h3>
+        <p class="product-desc">Soothes &amp; protects sensitive skin</p>
+        <p class="price">₹299</p>
+        <button class="add-to-cart">Add to Cart</button>
+      </div>
+
+      <div class="product-card search-item" data-id="k6" data-name="Kids Detangler Spray" data-price="229" data-title="Kids Detangler Spray" data-tags="haircare spray detangle" data-category="haircare">
+        <img src="https://images.unsplash.com/photo-1519415510236-718bdfcd89c8?w=300" alt="Detangler Spray">
+        <h3>Kids Detangler Spray</h3>
+        <p class="product-desc">No more tangles or tears</p>
+        <p class="price">₹229</p>
+        <button class="add-to-cart">Add to Cart</button>
+      </div>
+
+      <div class="product-card search-item" data-id="k7" data-name="Baby Powder" data-price="149" data-title="Baby Powder" data-tags="bath body powder gentle" data-category="bath">
+        <img src="https://images.unsplash.com/photo-1596464716127-f2a82984de30?w=300" alt="Baby Powder">
+        <h3>Baby Powder</h3>
+        <p class="product-desc">Talc-free, keeps skin fresh</p>
+        <p class="price">₹149</p>
+        <button class="add-to-cart">Add to Cart</button>
+      </div>
+
+      <div class="product-card search-item" data-id="k8" data-name="Kids Lip Balm Set" data-price="199" data-title="Kids Lip Balm Set" data-tags="skincare lips balm" data-category="skincare">
+        <img src="https://images.unsplash.com/photo-1512496015851-a90fb38ba796?w=300" alt="Lip Balm Set">
+        <h3>Kids Lip Balm Set</h3>
+        <p class="product-desc">3 flavours, SPF 15</p>
+        <p class="price">₹199</p>
+        <button class="add-to-cart">Add to Cart</button>
+      </div>
+
+    </div>
+    <p id="searchNoResults" style="display:none;color:#e91e63;margin-top:20px;">No products found.</p>
+  </section>
+
+</main>
+
+<footer>
+  <p>© 2026 Glow Beauty. All rights reserved.</p>
+</footer>
+
+<script src="main.js"></script>
+<script>
+document.querySelectorAll('.filter-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    const filter = btn.dataset.filter;
+    document.querySelectorAll('.product-card').forEach(card => {
+      const cat = card.dataset.category || '';
+      card.style.display = (filter === 'all' || cat === filter) ? '' : 'none';
+    });
+  });
+});
+</script>
+</body>
+</html>
