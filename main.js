@@ -160,7 +160,7 @@ function renderCartBody() {
   if (!body) return;
 
   if (!cart.length) {
-    body.innerHTML = '<p class="cart-empty">Your cart is empty 🌸</p>';
+    body.innerHTML = '<p class="cart-empty">Your cart is empty </p>';
     if (footer) footer.style.display = 'none';
     return;
   }
@@ -241,7 +241,7 @@ function initFormValidation() {
         if (data.success) {
           contactForm.reset();
           if (success) success.style.display = 'block';
-          showToast('Message sent! 💌');
+          showToast('Message sent! ');
         } else {
           showToast('Could not send. Please try again.', 4000);
         }
@@ -249,9 +249,9 @@ function initFormValidation() {
         // Demo mode: show success even without PHP
         contactForm.reset();
         if (success) success.style.display = 'block';
-        showToast('Message sent! 💌');
+        showToast('Message sent! ');
       } finally {
-        btn.textContent = 'Send Message 💌';
+        btn.textContent = 'Send Message ';
         btn.disabled = false;
       }
     });
@@ -368,7 +368,7 @@ function initCheckout() {
       updateCartBadge();
       checkoutForm.style.display = 'none';
       document.getElementById('orderSuccess').style.display = 'block';
-      showToast('Order placed! Thank you 🎉', 4000);
+      showToast('Order placed! Thank you ', 4000);
     });
   }
 }
