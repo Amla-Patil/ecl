@@ -53,7 +53,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['register'])) {
         // Auto-login after register
         $_SESSION['user']     = $username;
         $_SESSION['user_id']  = mysqli_insert_id($conn);
-        echo json_encode(['success' => true, 'message' => 'Account created! Welcome to Glow Beauty 💖', 'redirect' => 'index.html']);
+        echo json_encode(['success' => true, 'message' => 'Account created! Welcome to Glow Beauty ', 'redirect' => 'index.html']);
     } else {
         echo json_encode(['success' => false, 'errors' => ['Registration failed: ' . mysqli_error($conn)]]);
     }
@@ -77,7 +77,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['register'])) {
 <header>
   <div class="header-glow"></div>
   <h1>Glow Beauty</h1>
-  <h3>Your Beauty, Our Passion ✨</h3>
+  <h3>Your Beauty, Our Passion </h3>
 </header>
 <nav>
   <div class="nav-left">
@@ -88,7 +88,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['register'])) {
 
 <div class="login-box">
   <h2 style="font-family:'Playfair Display',serif;color:#e91e63;margin-bottom:6px;">Create Account</h2>
-  <p>Join Glow Beauty today 💖</p>
+  <p>Join Glow Beauty today </p>
 
   <?php if (!empty($message)): ?>
     <p style="color:<?= strpos($message,'success') !== false ? '#43a047' : '#e53935' ?>;margin-bottom:12px;">
