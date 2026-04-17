@@ -14,7 +14,7 @@
 <header>
   <div class="header-glow"></div>
   <h1>Glow Beauty</h1>
-  <h3>Your Beauty, Our Passion ✨</h3>
+  <h3>Your Beauty, Our Passion </h3>
 </header>
 
 <nav>
@@ -102,7 +102,7 @@ document.addEventListener('DOMContentLoaded', () => {
       });
       const data = await res.json();
       if (data.success) {
-        showToast('Welcome back, ' + data.user.name + '! 💖');
+        showToast('Welcome back, ' + data.user.name + '! ');
         setTimeout(() => window.location.href = 'index.html', 1500);
       } else {
         errEl.textContent = (data.errors || ['Login failed.']).join(' ');
@@ -137,7 +137,7 @@ document.addEventListener('DOMContentLoaded', () => {
       });
       const data = await res.json();
       if (data.success) {
-        showToast('Account created! Welcome 🎉');
+        showToast('Account created! Welcome ');
         setTimeout(() => window.location.href = 'index.html', 1500);
       } else {
         errEl.textContent = (data.errors || ['Registration failed.']).join(' ');
