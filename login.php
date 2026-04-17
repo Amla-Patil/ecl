@@ -51,7 +51,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['login'])) {
 
     echo json_encode([
         'success'  => true,
-        'message'  => 'Welcome back, ' . htmlspecialchars($row['username']) . '! 💖',
+        'message'  => 'Welcome back, ' . htmlspecialchars($row['username']) . '! ',
         'redirect' => 'index.html'
     ]);
     exit;
@@ -76,7 +76,7 @@ $_SESSION['captcha'] = (string)$captchaCode;
 <header>
   <div class="header-glow"></div>
   <h1>Glow Beauty</h1>
-  <h3>Your Beauty, Our Passion ✨</h3>
+  <h3>Your Beauty, Our Passion </h3>
 </header>
 <nav>
   <div class="nav-left">
