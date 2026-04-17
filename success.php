@@ -66,7 +66,7 @@ $username = htmlspecialchars($_SESSION['user']);
 <header>
   <div class="header-glow"></div>
   <h1>Glow Beauty</h1>
-  <h3>Your Beauty, Our Passion ✨</h3>
+  <h3>Your Beauty, Our Passion </h3>
 </header>
 <nav>
   <div class="nav-left">
@@ -76,10 +76,10 @@ $username = htmlspecialchars($_SESSION['user']);
 </nav>
 
 <div class="success-box">
-  <div class="emoji">🎉</div>
+  <div class="emoji"></div>
   <h2>Login Successful!</h2>
   <p>Welcome back, <strong><?= $username ?></strong>! We're so glad you're here.</p>
-  <a href="index.html" class="btn-home">Shop Now 💖</a>
+  <a href="index.html" class="btn-home">Shop Now </a>
   <a href="logout.php" class="logout-link">Not you? Log out</a>
 </div>
 
